@@ -1,12 +1,13 @@
-| URI                                                | Method | Returns                             |
-| -------------------------------------------------- | ------ | ----------------------------------- |
-| [/sales/v1/pashouder](#retrieve-pashouder)         | `GET`  | retrieve pashouder details by token |
-| [/sales/v1/pashouder](#update-pashouder)           | `POST` | update pashouder by token           |
-| [/sales/v1/registerpashouder](#register-pashouder) | `POST` | register pashouder to account       |
-| [/sales/v1/pas](#retrieve-pas)                     | `GET`  | retrieve pas details by pasnummer   |
-| [/sales/v1/togglepas](#toggle-pas)                 | `POST` | toggle pas status (block/unblock)   |
-| [/sales/v1/activatebudget](#activate-budget)       | `POST` | activate budgets on pas             |
-| [/sales/v1/checkactivepas](#check-active-pas)      | `POST` | check for active and valid pas      |
+| URI                                                | Method | Returns                                    |
+| -------------------------------------------------- | ------ | ------------------------------------------ |
+| [/sales/v1/pashouder](#retrieve-pashouder)         | `GET`  | retrieve pashouder details by token        |
+| [/sales/v1/pashouder](#update-pashouder)           | `POST` | update pashouder by token                  |
+| [/sales/v1/registerpashouder](#register-pashouder) | `POST` | register pashouder to account              |
+| [/sales/v1/pas](#retrieve-pas)                     | `GET`  | retrieve pas details by pasnummer          |
+| [/sales/v1/togglepas](#toggle-pas)                 | `POST` | toggle pas status (block/unblock)          |
+| [/sales/v1/activatebudget](#activate-budget)       | `POST` | activate budgets on pas                    |
+| [/sales/v1/checkactivepas](#check-active-pas)      | `POST` | check for active and valid pas             |
+| [/sales/v1/logincheck](#login-check)               | `GET`  | check if a cardholders loginname is unique |
 
 
 ## **Retrieve pashouder**
@@ -568,7 +569,8 @@ Check for an active and valid pas
           "pasnummer": 99999991,
           "postcode": "1100 AA",
           "huisnummer": 15,
-          "geboortedatum": "2021-12-31"
+          "geboortedatum": "2021-12-31",
+		  "checkonlyactive": true
       }
     ```
 
@@ -577,7 +579,7 @@ Check for an active and valid pas
   - **Code:** 200 <br />
     **Message:** OK <br />
 
-    **Description:** returns data about the valid and active card - failing to find a card results in a http 404 response<br />
+    **Description:** if checkonlyactive is true returns data about the most recent valid and active card - if checkonlyactive is false and a pasnummer is specified, returns data (including prolong data) about the specified card - failing to find a card results in a http 404 response<br />
 
     **Content:**
 
@@ -589,7 +591,14 @@ Check for an active and valid pas
           "categorie_code": "M",
           "expiry_date": "2021-12-31T22:59:59.000Z",
           "actief": true,
-          "vervangen": false
+          "vervangen": false,
+		  "verlenging": {
+			"verlengbaar": true,
+			"verlengpasjaar": 2022,
+			"betaalkenmerk": "1234567890123456",
+			"betaalstatus": "Verzonden",
+			"totaalbedrag": 60.00
+			}
       }
     ```
 
@@ -603,3 +612,52 @@ Check for an active and valid pas
 
   - **Code:** 406 <br />
     **Message:** Geen geldige pas gevonden
+
+## **Check login**
+
+Check if a cardholders loginname is unique
+
+- **URL**
+
+  /sales/v1/logincheck
+
+- **Method:**
+
+  `GET`
+
+- **Headers**
+
+  **Required:**
+
+  `API-Key`
+
+- **URL Params**
+
+  **Required:**
+
+  `loginname`
+
+- **Data Params**
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Message:** OK <br />
+
+    **Description:**check whether the login name provided by a cardholder is not already in use by another cardholder<br />
+
+    **Content:**
+
+    ```javascript
+	{
+        "login_name_exists": true
+	}
+    ```
+
+- **Error Response:**
+
+  - **Code:** 406 <br />
+    **Message:** {login_name} is not a valid emailaddress
+
+  - **Code:** 406 <br />
+    **Message:** {login_name} is empty or missing
