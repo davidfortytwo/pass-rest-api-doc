@@ -52,6 +52,8 @@ Returns json data about aanbieding transactions.
                 "id": 4119,
                 "transactiedatum": "2019-10-28T00:00:00.000Z",
                 "verleende_korting": 5.5,
+                "annulering": false,
+                "geannuleerd": false,
                 "pashouder": {
                     "id": 3561,
                     "hoofd_pashouder_id": 3559
@@ -148,6 +150,8 @@ Returns json data about budget transactions.
                 "id": 137,
                 "transactiedatum": "2017-10-05T12:58:20.0000000",
                 "bedrag": 20.0,
+                "annulering": false,
+                "geannuleerd": false,
                 "pashouder": {
                     "id": 1232,
                     "hoofd_pashouder_id": 53243
