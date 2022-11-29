@@ -40,7 +40,7 @@ The format of this type of `Authorization` header is as folows "`Authorization: 
 |             |                                                                                      |          |                                                                 |
 | DataAPI     | [/data/v1/fulfilment](dataapi.md#add-fulfilment-data)                                |  `POST`  | add fulfilment data                                             |
 |             |                                                                                      |          |                                                                 |
-| Onlinesales | [/onlinesales/v1/verlengverzoekakkoord](#accordeer-verlengverzoek)                   |  `POST`  | approve and process extension request                           |
+| Onlinesales | [/onlinesales/v1/verlengverzoekakkoord](onlinesales.md#accordeer-verlengverzoek)     |  `POST`  | approve and process extension request                           |
 |             |                                                                                      |          |                                                                 |
 | Sales       | [/sales/v1/pashouder](sales.md#retrieve-pashouder)                                   |  `GET`   | retrieve a single pashouder by token                            |
 | Sales       | [/sales/v1/pashouder](sales.md#update-pashouder)                                     |  `POST`  | update pashouder by token                                       |

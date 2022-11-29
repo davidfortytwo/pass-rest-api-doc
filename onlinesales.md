@@ -24,7 +24,7 @@ approves and processes extension request
 
   **Required**
 
-  `betaalkenmerk=[string]` unique identifier of extension request to be approved
+  `betaalkenmerk=[string]` unique identifier for extension request to be approved
 
   **Optional:**
 
@@ -33,7 +33,7 @@ approves and processes extension request
 - **Success Response:**
 
   - **Code:** 200 <br />
-    **Message:** OK <br />
+    **Message:** Verlengverzoek voor betaalkenmerk {betaalkenmerk} geaccordeerd <br />
 
     **Description:** returns no additonal data <br />
 
