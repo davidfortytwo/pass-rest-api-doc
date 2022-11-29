@@ -25,7 +25,7 @@ The format of this type of `Authorization` header is as folows "`Authorization: 
 | Service     | URI                                                                                  |  Method  | Description                                                     |
 | ----------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------- |
 | Aanbod      | [/aanbod/v1/aanbiedingen](aanbiedingen.md#retrieve-aanbiedingen)                     |  `GET`   | retrieve a list of aanbiedingen                                 |
-| Aanbod      | [/aanbod/v1/aanbiedingen/:aanbiedingnummer](aanbiedingen.md#retrieve-aanbieding)                   |  `GET`   | retrieve a single aanbieding by id                              |
+| Aanbod      | [/aanbod/v1/aanbiedingen/:aanbiedingnummer](aanbiedingen.md#retrieve-aanbieding)     |  `GET`   | retrieve a single aanbieding by id                              |
 | Aanbod      | [/aanbod/v1/activiteiten](activiteiten.md#retrieve-activiteiten)                     |  `GET`   | retrieve a list of activiteiten                                 |
 | Aanbod      | [/aanbod/v1/activiteiten/:id](activiteiten.md#retrieve-activiteit)                   |  `GET`   | retrieve a single activiteit by id                              |
 | Aanbod      | [/aanbod/v1/aanbiederactiviteiten](activiteiten.md#retrieve-aanbiederactiviteiten)   |  `GET`   | retrieve a list of aanbiederactiviteiten                        |
@@ -39,6 +39,8 @@ The format of this type of `Authorization` header is as folows "`Authorization: 
 | Aanvragen   | [/aanvragen/v2/boaupdate](boaaanvragen.md#update-boaaanvraag)                        |  `POST`  | webhook updat for boaaanvraag                                   |
 |             |                                                                                      |          |                                                                 |
 | DataAPI     | [/data/v1/fulfilment](dataapi.md#add-fulfilment-data)                                |  `POST`  | add fulfilment data                                             |
+|             |                                                                                      |          |                                                                 |
+| Onlinesales | [/onlinesales/v1/verlengverzoekakkoord](#accordeer-verlengverzoek)                   |  `POST`  | approve and process extension request                           |
 |             |                                                                                      |          |                                                                 |
 | Sales       | [/sales/v1/pashouder](sales.md#retrieve-pashouder)                                   |  `GET`   | retrieve a single pashouder by token                            |
 | Sales       | [/sales/v1/pashouder](sales.md#update-pashouder)                                     |  `POST`  | update pashouder by token                                       |
