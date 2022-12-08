@@ -80,6 +80,8 @@ Returns json data about an activiteit.
       "actie_soort": "Activiteit",
       "actie_jaar": 2019,
       "titel": "Sport",
+      "kortingszin": "Sport",
+      "beschrijving": "Omschrijving activiteit",
       "pijler": "Sport",
       "startdatum": "2017-07-01T00:00:00.0000000",
       "einddatum": "2020-06-30T00:00:00.0000000",
@@ -102,7 +104,8 @@ Returns json data about an activiteit.
         {
           "id": 843,
           "code": "BS_2019",
-          "naam": "Basisschool"
+          "naam": "Basisschool",
+          "icon_class": "child"
         }
       ]
     }
