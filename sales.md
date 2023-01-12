@@ -115,8 +115,15 @@ Returns json data about pashouder.
                     "passoort": {
                       "id": 3213,
                       "naam": "Stadspas 2019"
-                    }
-                }
+                    },
+                },
+	              "budgetten": [
+		                {
+                      "code": "BO",
+                      "naam": "Kindtegoed 0-9",
+                      "icon_class": "child"
+		                }
+                ]
             }
         ],
         "sub_pashouders": [
@@ -155,7 +162,14 @@ Returns json data about pashouder.
                               "id": 3213,
                               "naam": "Stadspas 2019"
                             }
-                        }
+                        },
+	                      "budgetten": [
+		                         {
+                                "code": "BO",
+                                "naam": "Kindtegoed 0-9",
+                                "icon_class": "child"
+		                        }
+                        ]
                     }
                 ]
             }
