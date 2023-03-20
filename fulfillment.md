@@ -47,11 +47,11 @@
   - **Code:** 400 <br />
     **Message:** No content
 
-  - **Code:** 400 <br />
+  - **Code:** 422 <br />
     **Message:** Missing field in order {Ordernr}
 
-  - **Code:** 400 <br />
+  - **Code:** 422 <br />
     **Message:** Missing field in order {Statuscode}
 
-  - **Code:** 401 <br />
+  - **Code:** 404 <br />
     **Message:** Unknown ordernr
