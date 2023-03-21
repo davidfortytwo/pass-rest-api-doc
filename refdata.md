@@ -4,6 +4,7 @@
 | [/refdata/v1/verkooppunten](#retrieve-verkooppunten)               | `GET`  | retrieve verkooppunten and related gemeente          |
 | [/refdata/v1/pastarieven](#retrieve-pastarieven)                   | `GET`  | retrieve pastarieven bij verkooppunt                 |
 | [/refdata/v1/passwordrules](#retrieve-password-rules)              | `GET`  | retrieve the currently valid password rules          |
+| [/refdata/v1/inkomensnorm](#retrieve-inkomensnormen)               | `GET`  | retrieve inkomensnormen bij gemeenten                |
 
 ## **Retrieve payment methods**
 
@@ -344,4 +345,120 @@ Returns json data about the currently valid password rules
 	
   - **Code:** 406 <br />
     **Message:** No password rules found
+
+## **Retrieve inkomensnormen**
+
+Returns json data about the valid income limits poer municipality
+																															 
+- **URL**
+
+  /refdata/v1/inkomensnorm
+
+- **Method:**
+
+  `GET`
+
+- **Headers**
+
+  **Required:**
+
+  `API-Key` 
+
+- **URL Params**
+
+  **Required:**
+
+  pasjaar
+
+  **Optional:**
+  
+  gemeente_code
+
+- **Success Response:**
+
+  - **Code:** 200 <br />
+    **Message:** OK <br />
+    **Content:** <br />
+
+    ```javascript
+    {
+        "gemeente": "Arnhem",
+        "passoort": "Gelrepa",
+        "pasperiode": 2023,
+        "inkomensnormen": [
+            {
+                "normid": 2,
+                "gezinstype": "Alleenstaande",
+                "omschrijving": "Alleenstaande",
+                "normbedrag": 1207.3,
+                "inkomensbereiken": [
+                    {
+                        "omschrijving": "0 t/m 100% van het norminkomen voor een Alleenstaande",
+                        "percentage_vanaf": 0,
+                        "percentage_tm": 100,
+                        "toetsbedrag_vanaf": 0,
+                        "toetsbedrag_tm": 1207.3
+                    },
+                    {
+                        "omschrijving": "100% t/m 120% van het norminkomen voor een alleenstaande",
+                        "percentage_vanaf": 100,
+                        "percentage_tm": 120,
+                        "toetsbedrag_vanaf": 1207.31,
+                        "toetsbedrag_tm": 1448.76
+                    },
+                    {
+                        "omschrijving": "120% t/m 150% van het norminkomen voor een alleenstaande",
+                        "percentage_vanaf": 120,
+                        "percentage_tm": 150,
+                        "toetsbedrag_vanaf": 1448.77,
+                        "toetsbedrag_tm": 1810.95
+                    }
+                ]
+            },
+            {
+                "normid": 3,
+                "gezinstype": "Alleenstaande AOW zonder kinderen",
+                "omschrijving": "Alleenstaande AOW zonder kinderen",
+                "normbedrag": 1211.06,
+                "inkomensbereiken": [
+                    {
+                        "omschrijving": "0 t/m 100% van het norminkomen voor een Alleenstaande AOW zonder kinderen",
+                        "percentage_vanaf": 0,
+                        "percentage_tm": 100,
+                        "toetsbedrag_vanaf": 0,
+                        "toetsbedrag_tm": 1211.06
+                    }
+                ]
+            },
+            {
+                "normid": 4,
+                "gezinstype": "Alleenstaande met kinderen",
+                "omschrijving": "Alleenstaande ouder",
+                "normbedrag": 1033.3,
+                "inkomensbereiken": [
+                    {
+                        "omschrijving": "0 t/m 100% van het norminkomen voor een Alleenstaande ouder",
+                        "percentage_vanaf": 0,
+                        "percentage_tm": 100,
+                        "toetsbedrag_vanaf": 0,
+                        "toetsbedrag_tm": 1033.3
+                    }
+                ]
+            }
+        ]
+    }
+
+- **Error Response:**
+
+  - **Code:** 401 <br />
+    **Message:** Authorization error
+	
+  - **Code:** 404 <br />
+    **Message:** Deelnemende gemeente for {gemeente_code} not found or not active
+	
+  - **Code:** 422 <br />
+    **Message:** Query parameter {pasjaar} is missing or empty
+	
+  - **Code:** 422 <br />
+    **Message:** Pasperiode for {pasjaar} not found
 
